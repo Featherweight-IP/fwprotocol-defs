@@ -47,14 +47,14 @@
 	input[SIZE-1:0]					PREFIX``we
 
 `define WB_WIRES(PREFIX,ADDR_WIDTH,DATA_WIDTH) \
-	wire[ADDR_WIDTH-1:0]			PREFIX``adr, \
-	wire[DATA_WIDTH-1:0]			PREFIX``dat_w, \
-	wire[DATA_WIDTH-1:0]			PREFIX``dat_r, \
-	wire							PREFIX``cyc, \
-	wire							PREFIX``err, \
-	wire[DATA_WIDTH/8-1:0]			PREFIX``sel, \
-	wire							PREFIX``stb, \
-	wire							PREFIX``ack, \
+	wire[ADDR_WIDTH-1:0]			PREFIX``adr; \
+	wire[DATA_WIDTH-1:0]			PREFIX``dat_w; \
+	wire[DATA_WIDTH-1:0]			PREFIX``dat_r; \
+	wire							PREFIX``cyc; \
+	wire							PREFIX``err; \
+	wire[DATA_WIDTH/8-1:0]			PREFIX``sel; \
+	wire							PREFIX``stb; \
+	wire							PREFIX``ack; \
 	wire							PREFIX``we
 
 `define WB_WIRES_ARR(PREFIX,ADDR_WIDTH,DATA_WIDTH,SIZE) \
