@@ -103,6 +103,16 @@
 	assign W_PREFIX``stb   = A_PREFIX``stb[INDEX]; \
 	assign A_PREFIX``ack[INDEX] = W_PREFIX``ack; \
 	assign W_PREFIX``we    = A_PREFIX``we[INDEX]
-	
+
+`define WB_ASSIGN_ARRI2ARRI(T_PREFIX,T_INDEX,S_PREFIX,S_INDEX,ADDR_WIDTH,DATA_WIDTH) \
+	assign T_PREFIX``adr[(T_INDEX)*(ADDR_WIDTH)+:(ADDR_WIDTH)]   = S_PREFIX``adr[(S_INDEX)*(ADDR_WIDTH)+:(ADDR_WIDTH)]; 	\
+	assign T_PREFIX``dat_w[(T_INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)] = S_PREFIX``dat_w[(S_INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)]; 	\
+	assign S_PREFIX``dat_r[(T_INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)] = T_PREFIX``dat_r; 	                                    \
+	assign T_PREFIX``cyc[T_INDEX]                                = S_PREFIX``cyc[S_INDEX]; 									\
+	assign S_PREFIX``err[S_INDEX]                                = T_PREFIX``err[T_INDEX]; 									\
+	assign T_PREFIX``sel[(T_INDEX)*(DATA_WIDTH/8)+:(DATA_WIDTH/8)]  = S_PREFIX``sel[(T_INDEX)*(DATA_WIDTH/8)+:(DATA_WIDTH/8)]; \
+	assign T_PREFIX``stb[T_INDEX]                                   = S_PREFIX``stb[S_INDEX]; \
+	assign S_PREFIX``ack[S_INDEX]                                   = T_PREFIX``ack[T_INDEX]; \
+	assign T_PREFIX``we[T_INDEX]                                    = S_PREFIX``we[S_INDEX]
 	
 `endif /* INCLDUDED_WISHBONE_MACROS_SVH */
