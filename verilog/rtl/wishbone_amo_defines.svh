@@ -12,5 +12,7 @@
 `define WB_AMO_MAXU 4'b0111
 `define WB_AMO_MINS 4'b1000
 `define WB_AMO_MINU 4'b1001
+`define WB_AMO_LR   4'b1010
+`define WB_AMO_SC   4'b1011
 	
 `endif /* INCLUDED_WISHBONE_AMO_DEFINES_SVH */
