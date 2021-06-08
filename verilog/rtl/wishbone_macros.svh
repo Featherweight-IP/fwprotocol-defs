@@ -103,6 +103,16 @@
 	assign W_PREFIX``stb   = A_PREFIX``stb[INDEX]; \
 	assign A_PREFIX``ack[INDEX] = W_PREFIX``ack; \
 	assign W_PREFIX``we    = A_PREFIX``we[INDEX]
-	
+
+`define WB_ASSIGN_WIRES2ARR(A_PREFIX,W_PREFIX,INDEX,ADDR_WIDTH,DATA_WIDTH) \
+	assign A_PREFIX``adr[(INDEX)*(ADDR_WIDTH)+:(ADDR_WIDTH)]   = W_PREFIX``adr; 	\
+	assign A_PREFIX``dat_w[(INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)] = W_PREFIX``dat_w; 	\
+	assign W_PREFIX``dat_r        = A_PREFIX``dat_r[(INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)]; 	\
+	assign A_PREFIX``cyc[INDEX]   = W_PREFIX``cyc; 									\
+	assign W_PREFIX``err = A_PREFIX``err[INDEX]; 									\
+	assign A_PREFIX``sel[(INDEX)*(DATA_WIDTH/8)+:(DATA_WIDTH/8)]   = W_PREFIX``sel; \
+	assign A_PREFIX``stb[INDEX]   = W_PREFIX``stb; \
+	assign W_PREFIX``ack          = A_PREFIX``ack[INDEX]; \
+	assign A_PREFIX``we[INDEX]    = W_PREFIX``we
 	
 `endif /* INCLDUDED_WISHBONE_MACROS_SVH */

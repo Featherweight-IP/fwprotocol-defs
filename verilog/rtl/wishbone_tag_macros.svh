@@ -179,10 +179,24 @@
 	assign W_PREFIX``stb   = A_PREFIX``stb[INDEX]; 									\
 	assign A_PREFIX``ack[INDEX] = W_PREFIX``ack; 									\
 	assign W_PREFIX``we    = A_PREFIX``we[INDEX]; 									\
-	assign W_PREFIX``tgd_w = A_PREFIX``tgd_w[(INDEX)*(TGD_WIDTH)+:(TGD_WIDTH)]);	\
+	assign W_PREFIX``tgd_w = A_PREFIX``tgd_w[(INDEX)*(TGD_WIDTH)+:(TGD_WIDTH)];	\
 	assign A_PREFIX``tgd_r[(INDEX)*(TGD_WIDTH)+:(TGD_WIDTH)] = W_PREFIX``tgd_r;     \
 	assign W_PREFIX``tga = A_PREFIX``tga[(INDEX)*(TGA_WIDTH)+:(TGA_WIDTH)];			\
 	assign W_PREFIX``tgc = A_PREFIX``tgc[(INDEX)*(TGC_WIDTH)+:(TGC_WIDTH)]
-	
+
+`define WB_TAG_ASSIGN_WIRES2ARR(A_PREFIX,W_PREFIX,INDEX,ADDR_WIDTH,DATA_WIDTH,TGD_WIDTH,TGA_WIDTH,TGC_WIDTH) \
+	assign A_PREFIX``adr[(INDEX)*(ADDR_WIDTH)+:(ADDR_WIDTH)]   = W_PREFIX``adr; 	\
+	assign A_PREFIX``dat_w[(INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)] = W_PREFIX``dat_w; 	\
+	assign W_PREFIX``dat_r = A_PREFIX``dat_r[(INDEX)*(DATA_WIDTH)+:(DATA_WIDTH)]; 	\
+	assign A_PREFIX``cyc[INDEX]   = W_PREFIX``cyc; 									\
+	assign W_PREFIX``err = A_PREFIX``err[INDEX]; 									\
+	assign A_PREFIX``sel[(INDEX)*(DATA_WIDTH/8)+:(DATA_WIDTH/8)]   = W_PREFIX``sel; \
+	assign A_PREFIX``stb[INDEX]  = W_PREFIX``stb; 									\
+	assign W_PREFIX``ack = A_PREFIX``ack[INDEX]; 									\
+	assign A_PREFIX``we[INDEX]    = W_PREFIX``we; 									\
+	assign A_PREFIX``tgd_w[(INDEX)*(TGD_WIDTH)+:(TGD_WIDTH)] = W_PREFIX``tgd_w;	\
+	assign W_PREFIX``tgd_r = A_PREFIX``tgd_r[(INDEX)*(TGD_WIDTH)+:(TGD_WIDTH)];     \
+	assign A_PREFIX``tga[(INDEX)*(TGA_WIDTH)+:(TGA_WIDTH)] = W_PREFIX``tga;			\
+	assign A_PREFIX``tgc[(INDEX)*(TGC_WIDTH)+:(TGC_WIDTH)] = W_PREFIX``tgc
 	
 `endif /* INCLDUDED_WISHBONE_TAG_MACROS_SVH */
