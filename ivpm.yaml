@@ -1,0 +1,5 @@
+package:
+    name: fwprotocol_defs
+    version: None
+    deps:
+    dev-deps:
