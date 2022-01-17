@@ -10,6 +10,14 @@
 	output[DAT_WIDTH-1:0]			PREFIX``dat_w, \
 	input[DAT_WIDTH-1:0]			PREFIX``dat_r
 	
+`define SKY130_OPENRAM_RW_INITIATOR_PORT_ARR(PREFIX, ADR_WIDTH, DAT_WIDTH, SIZE) \
+	output[(SIZE)-1:0]							PREFIX``csb, \
+	output[(SIZE)-1:0]							PREFIX``web, \
+	output[(((DAT_WIDTH)*(SIZE))/8)-1:0]		PREFIX``wmask, \
+	output[((ADR_WIDTH)*(SIZE))-1:0]			PREFIX``addr, \
+	output[((DAT_WIDTH)*(SIZE))-1:0]			PREFIX``dat_w, \
+	input[((DAT_WIDTH)*(SIZE))-1:0]				PREFIX``dat_r
+	
 `define SKY130_OPENRAM_RW_TARGET_PORT(PREFIX, ADR_WIDTH, DAT_WIDTH) \
 	input							PREFIX``csb, \
 	input							PREFIX``web, \
