@@ -1,0 +1,19 @@
+CAPI=2:
+
+name: featherweight-ip::fwprotocol-defs:0.0.1
+description: Macros for working with standard protocols
+
+filesets:
+  rtl:
+    files:
+      - verilog/rtl: {include_path: true}
+    file_type: verilogSource
+    
+targets:
+  default:
+    filesets:
+      - rtl
+      
+  hdl:
+    filesets:
+      - rtl
