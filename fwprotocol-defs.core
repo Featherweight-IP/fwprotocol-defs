@@ -6,9 +6,10 @@ description: Macros for working with standard protocols
 filesets:
   rtl:
     files:
-      - verilog/rtl: {include_path: true}
+      - verilog/rtl/wishbone_macros.svh:
+          is_include_file: True
     file_type: verilogSource
-    
+
 targets:
   default:
     filesets:
