@@ -1,5 +1,14 @@
 package:
     name: fwprotocol_defs
     version: None
-    deps:
-    dev-deps:
+
+    dep-sets:
+      - name: default
+        deps: []
+      - name: default-dev
+        deps: []
+        
+    paths:
+      export:
+        lib-dirs:
+        - .
